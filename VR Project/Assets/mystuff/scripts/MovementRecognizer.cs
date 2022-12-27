@@ -21,6 +21,9 @@ public class MovementRecognizer : MonoBehaviour
     [SerializeField] private bool _creationMode = true;
     [SerializeField] private string newGestureName;
 
+    [SerializeField] private SpellHand _spellHand;
+    [SerializeField] private StatSheet _playerStats;
+
     private bool _isMoving = false;
     private List<Vector3> _positionList= new List<Vector3>();
     private Camera cam;
@@ -44,6 +47,7 @@ public class MovementRecognizer : MonoBehaviour
         //start
         if(!_isMoving && isPressed)
         {
+            if (_playerStats.CanAttack)
             StartMovement();
         }
         //end
@@ -94,6 +98,10 @@ public class MovementRecognizer : MonoBehaviour
         {
             Result result = PointCloudRecognizer.Classify(newGesture, gameManager.Gestures.ToArray());
             Debug.Log($"You Drew:{result.GestureClass} |  Score: {result.Score}");
+            if (_playerStats.CanAttack && result.Score > 0.8f)
+            {
+                _spellHand.CastSpell(result.GestureClass);
+            }
         }
     }
     void UpdateMovement()

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Gesture Name = "rectangle">
+	<Stroke>
+		<Point X = "3472.295" Y = "1203.482" T = "0" Pressure = "0" />
+		<Point X = "2291.034" Y = "1058.476" T = "0" Pressure = "0" />
+		<Point X = "1400.144" Y = "1079.438" T = "0" Pressure = "0" />
+		<Point X = "1027.57" Y = "1141.903" T = "0" Pressure = "0" />
+		<Point X = "990.6683" Y = "852.1891" T = "0" Pressure = "0" />
+		<Point X = "954.9084" Y = "-87.21885" T = "0" Pressure = "0" />
+		<Point X = "892.4548" Y = "-1099.057" T = "0" Pressure = "0" />
+		<Point X = "2025.88" Y = "-472.0224" T = "0" Pressure = "0" />
+		<Point X = "3198.791" Y = "-1082.068" T = "0" Pressure = "0" />
+		<Point X = "3012.604" Y = "-617.2541" T = "0" Pressure = "0" />
+		<Point X = "3362.371" Y = "930.5013" T = "0" Pressure = "0" />
+		<Point X = "4431.874" Y = "2052.832" T = "0" Pressure = "0" />
+	</Stroke>
+</Gesture>

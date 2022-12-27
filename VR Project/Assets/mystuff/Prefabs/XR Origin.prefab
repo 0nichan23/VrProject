@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3078295220315911281}
   - component: {fileID: 3078295220315911282}
   - component: {fileID: 8105990469199351073}
+  - component: {fileID: 8978003910076293100}
   m_Layer: 6
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -537,8 +538,22 @@ MonoBehaviour:
     m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _movementSource: {fileID: 3078295220315911283}
   _betweenPositionsThreshold: 0.05
-  _creationMode: 1
-  newGestureName: pew
+  _creationMode: 0
+  newGestureName: rectangle
+  _spellHand: {fileID: 5329698022045116235}
+  _playerStats: {fileID: 4753881473284891862}
+--- !u!114 &8978003910076293100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078295220315911292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff118ab97e2d1d45b3b834b7d0bb595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3078295220869808710
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +760,7 @@ GameObject:
   - component: {fileID: 3078295221163000210}
   - component: {fileID: 3078295221163000211}
   - component: {fileID: 1753246680}
+  - component: {fileID: 5329698022045116235}
   m_Layer: 6
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -1270,6 +1286,20 @@ MonoBehaviour:
   _betweenPositionsThreshold: 0.05
   _creationMode: 0
   newGestureName: 
+  _spellHand: {fileID: 8978003910076293100}
+  _playerStats: {fileID: 4753881473284891862}
+--- !u!114 &5329698022045116235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078295221163000221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff118ab97e2d1d45b3b834b7d0bb595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3078295221483760981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,11 +1311,12 @@ GameObject:
   - component: {fileID: 3078295221483760970}
   - component: {fileID: 3078295221483760971}
   - component: {fileID: 3078295221483760980}
-  - component: {fileID: 3078295221483760969}
   - component: {fileID: 315757300}
   - component: {fileID: 315757299}
   - component: {fileID: 315757301}
   - component: {fileID: 2249201113013984932}
+  - component: {fileID: 567836576160208129}
+  - component: {fileID: 4753881473284891862}
   m_Layer: 6
   m_Name: XR Origin
   m_TagString: Untagged
@@ -1340,18 +1371,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActionAssets:
   - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
---- !u!114 &3078295221483760969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3078295221483760981}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eca82d4014b134489c27c167ccd6a03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &315757300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1464,6 +1483,60 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!114 &567836576160208129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078295221483760981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2213c36610e3b1c4bbf886810ed9db12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 315757299}
+  m_TurnAmount: 45
+  m_DebounceTime: 0.5
+  m_EnableTurnLeftRight: 1
+  m_EnableTurnAround: 1
+  m_LeftHandSnapTurnAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Left Hand Snap Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: b562274a-5f98-4bb5-bb6b-bd995de4a8c0
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_RightHandSnapTurnAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Hand Snap Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 05c296fc-6fdd-47cf-9e8c-7c8be9868ae8
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!114 &4753881473284891862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078295221483760981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16897697f0529d643a4ad4c291b8b7e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanAttack: 0
 --- !u!1001 &3078295220554932333
 PrefabInstance:
   m_ObjectHideFlags: 0
