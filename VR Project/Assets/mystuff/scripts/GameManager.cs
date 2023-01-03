@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public List<Gesture> Gestures = new List<Gesture>();
 
+    public List<SOspell> Spells = new List<SOspell>();
+
     private void Awake()
     {
         instance = this;

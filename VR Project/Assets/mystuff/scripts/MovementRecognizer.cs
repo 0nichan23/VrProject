@@ -98,9 +98,9 @@ public class MovementRecognizer : MonoBehaviour
         {
             Result result = PointCloudRecognizer.Classify(newGesture, gameManager.Gestures.ToArray());
             Debug.Log($"You Drew:{result.GestureClass} |  Score: {result.Score}");
-            if (_playerStats.CanAttack && result.Score > 0.8f)
+            if (_playerStats.CanAttack)
             {
-                _spellHand.CastSpell(result.GestureClass);
+                _spellHand.CastSpell(result.GestureClass, result.Score);
             }
         }
     }
