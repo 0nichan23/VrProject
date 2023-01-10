@@ -7,10 +7,6 @@ public class StatSheet : MonoBehaviour
 {
     private float _cooldown;
     [HideInInspector] public bool CanAttack = true; 
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

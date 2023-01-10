@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff118ab97e2d1d45b3b834b7d0bb595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerStats: {fileID: 0}
+  _playerStats: {fileID: 4753881473284891862}
 --- !u!65 &46970455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -973,7 +973,7 @@ MonoBehaviour:
   _movementSource: {fileID: 1881377223}
   _betweenPositionsThreshold: 0.05
   _creationMode: 0
-  newGestureName: rectangle
+  newGestureName: Circle
   _spellHand: {fileID: 46970456}
   _playerStats: {fileID: 4753881473284891862}
 --- !u!114 &1881377216
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff118ab97e2d1d45b3b834b7d0bb595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerStats: {fileID: 0}
+  _playerStats: {fileID: 4753881473284891862}
 --- !u!65 &1881377218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1867,7 +1867,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
