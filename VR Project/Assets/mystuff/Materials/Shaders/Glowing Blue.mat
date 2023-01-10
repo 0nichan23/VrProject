@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Glowing White
+  m_Name: Glowing Blue
   m_Shader: {fileID: -6465566751694194690, guid: 858247d997875994e9466dd11871662c, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -50,5 +50,5 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 21.361254, g: 2.0827436, b: 0, a: 0}
+    - _Color: {r: 0.78490543, g: 8, b: 6.656765, a: 0}
   m_BuildTextureStacks: []

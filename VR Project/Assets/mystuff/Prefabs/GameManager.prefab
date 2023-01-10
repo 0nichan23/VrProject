@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spells:
   - {fileID: 11400000, guid: 5aa92fff0c142d348a0e6e6826b577c4, type: 2}
+  - {fileID: 11400000, guid: be798c4c3c48234468f7e80951b1871c, type: 2}
 --- !u!114 &8686208199312581596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,4 +184,7 @@ MonoBehaviour:
     pools:
     - tag: Fireball
       prefab: {fileID: 8410033459431323263, guid: e6fbb00a539fb8f4a918fc45780b29f4, type: 3}
+      size: 10
+    - tag: IceSpike
+      prefab: {fileID: 3712136590816835900, guid: 756b5a4111041f34098fe8cff611d286, type: 3}
       size: 10

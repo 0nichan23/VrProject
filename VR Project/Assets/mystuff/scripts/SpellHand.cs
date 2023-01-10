@@ -58,7 +58,7 @@ public class SpellHand : MonoBehaviour
 
     void ShootIceSpike()
     {
-
+        OP.SpawnFromPool("IceSpike", transform.position, transform.rotation);
     }
 
     void CreateBarrier()
