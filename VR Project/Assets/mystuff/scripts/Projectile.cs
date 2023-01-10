@@ -9,6 +9,6 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(transform.forward * _speed * Time.deltaTime);
+        transform.position += transform.forward * _speed * Time.deltaTime;
     }
 }
