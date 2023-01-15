@@ -9,18 +9,6 @@ public class SpellHand : MonoBehaviour
 
     ObjectPooler OP => ObjectPooler.Instance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void CastSpell(string tag, float acc)
     {
         SOspell spell = GM.Spells.Find(x => x.Gesture == tag);
@@ -53,7 +41,9 @@ public class SpellHand : MonoBehaviour
 
     void ShootLightning()
     {
-
+        GameObject lightning =OP.SpawnFromPool("Lightning", transform.position, transform.rotation);
+        lightning.GetComponent<TurnOff>().Use(10);
+        lightning.transform.SetParent(transform);
     }
 
     void ShootIceSpike()

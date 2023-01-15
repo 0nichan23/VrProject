@@ -15,6 +15,7 @@ public class TurnOff : MonoBehaviour
     IEnumerator remove()
     {
         yield return new WaitForSeconds(_time);
+        transform.SetParent(ObjectPooler.Instance.transform);
         gameObject.SetActive(false);
     }
 }
