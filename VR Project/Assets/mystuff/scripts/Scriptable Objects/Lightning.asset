@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cbe03d78e5e78458d7819340c06be4, type: 3}
   m_Name: Lightning
   m_EditorClassIdentifier: 
-  Type: 2
-  Gesture: Triangle
+  Type: 1
+  Gesture: Line
   Accuracy: 0.6
-  Cooldown: 1
+  Cooldown: 7
