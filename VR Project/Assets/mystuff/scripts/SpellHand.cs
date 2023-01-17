@@ -53,6 +53,8 @@ public class SpellHand : MonoBehaviour
 
     void CreateBarrier()
     {
-
+        GameObject Shield = OP.SpawnFromPool("Shield", _playerStats.transform.position, _playerStats.transform.rotation);
+        Shield.GetComponent<TurnOff>().Use(10);
+        Shield.transform.SetParent(_playerStats.transform);
     }
 }
