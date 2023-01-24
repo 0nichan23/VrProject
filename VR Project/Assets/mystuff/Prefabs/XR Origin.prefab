@@ -320,7 +320,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46970452}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
@@ -445,6 +445,7 @@ MonoBehaviour:
   newGestureName: 
   _spellHand: {fileID: 2020096427731818597}
   _playerStats: {fileID: 4753881473284891862}
+  _lrTime: 2
 --- !u!65 &46970455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -856,7 +857,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881377215}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
@@ -978,9 +979,10 @@ MonoBehaviour:
   _movementSource: {fileID: 1881377223}
   _betweenPositionsThreshold: 0.05
   _creationMode: 0
-  newGestureName: Triangle
+  newGestureName: Line
   _spellHand: {fileID: 5726896067917997407}
   _playerStats: {fileID: 4753881473284891862}
+  _lrTime: 2
 --- !u!65 &1881377218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1669,6 +1671,7 @@ MonoBehaviour:
   newGestureName: rectangle
   _spellHand: {fileID: 5329698022045116235}
   _playerStats: {fileID: 4753881473284891862}
+  _lrTime: 2
 --- !u!114 &8978003910076293100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2475,6 +2478,7 @@ MonoBehaviour:
   newGestureName: 
   _spellHand: {fileID: 8978003910076293100}
   _playerStats: {fileID: 4753881473284891862}
+  _lrTime: 2
 --- !u!114 &5329698022045116235
 MonoBehaviour:
   m_ObjectHideFlags: 0

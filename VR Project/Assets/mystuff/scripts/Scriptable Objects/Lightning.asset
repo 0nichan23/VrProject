@@ -16,3 +16,32 @@ MonoBehaviour:
   Gesture: Line
   Accuracy: 0.6
   Cooldown: 10
+  color:
+    serializedVersion: 2
+    key0: {r: 0.8907795, g: 0, b: 1, a: 0.8}
+    key1: {r: 0.3372549, g: 0.4117647, b: 0.18431373, a: 0.8}
+    key2: {r: 0.3372549, g: 0.4117647, b: 0.18431373, a: 0.8}
+    key3: {r: 0.3372549, g: 0.4117647, b: 0.18431373, a: 0.8}
+    key4: {r: 0.3372549, g: 0.4117647, b: 0.18431373, a: 0.8}
+    key5: {r: 0.3372549, g: 0.4117647, b: 0.18431373, a: 0.8}
+    key6: {r: 0.3372549, g: 0.4117647, b: 0.18431373, a: 0.8}
+    key7: {r: 0.3372549, g: 0.4117647, b: 0.18431373, a: 0.8}
+    ctime0: 60909
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2

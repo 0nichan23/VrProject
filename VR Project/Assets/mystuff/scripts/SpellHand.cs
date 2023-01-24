@@ -9,11 +9,11 @@ public class SpellHand : MonoBehaviour
 
     ObjectPooler OP => ObjectPooler.Instance;
 
-    public void CastSpell(string tag, float acc)
+    public SOspell CastSpell(string tag, float acc)
     {
         SOspell spell = GM.Spells.Find(x => x.Gesture == tag);
-        if (spell == null) return;
-        if (spell.Accuracy > acc) return;
+        if (spell == null) return null;
+        if (spell.Accuracy > acc) return null;
 
         _playerStats.UseAttack(spell.Cooldown);
 
@@ -32,6 +32,7 @@ public class SpellHand : MonoBehaviour
                 CreateBarrier();
                 break;
         }
+        return spell;
     }
 
     void ShootFireball()

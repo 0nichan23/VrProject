@@ -3217,14 +3217,6 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1099061707}
-    - target: {fileID: 1881377219, guid: ec18fce182df0244ba190e7efc306731, type: 3}
-      propertyPath: _creationMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881377219, guid: ec18fce182df0244ba190e7efc306731, type: 3}
-      propertyPath: newGestureName
-      value: Line
-      objectReference: {fileID: 0}
     - target: {fileID: 3078295220315911280, guid: ec18fce182df0244ba190e7efc306731, type: 3}
       propertyPath: m_InteractionManager
       value: 

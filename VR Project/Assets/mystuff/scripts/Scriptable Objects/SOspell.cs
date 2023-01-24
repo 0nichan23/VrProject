@@ -10,6 +10,7 @@ public class SOspell : ScriptableObject
     public string Gesture;
     public float Accuracy;
     public float Cooldown;
+    public Gradient color;
 
     public enum SpellType : int
     {

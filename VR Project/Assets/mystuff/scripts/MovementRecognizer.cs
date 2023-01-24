@@ -7,6 +7,7 @@ using PDollarGestureRecognizer;
 using UnityEngine.InputSystem;
 using UnityEngine.Experimental.XR.Interaction;
 using System.IO;
+using System;
 
 public class MovementRecognizer : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class MovementRecognizer : MonoBehaviour
     [SerializeField] private SpellHand _spellHand;
     [SerializeField] private StatSheet _playerStats;
 
+    private float _lrStartWidth;
+    [SerializeField] private float _lrTime = 2;
+    private float _lrCurrentTime;
+    private LineRenderer _lr => GetComponent<LineRenderer>();
+
     private bool _isMoving = false;
     private List<Vector3> _positionList= new List<Vector3>();
     private Camera cam;
@@ -33,6 +39,7 @@ public class MovementRecognizer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _lrStartWidth = _lr.startWidth;
         cam = Camera.main;
     }
 
@@ -60,12 +67,28 @@ public class MovementRecognizer : MonoBehaviour
         {
             UpdateMovement();
         }
+
+        if (!_isMoving)
+        {
+            _lrCurrentTime -= Time.deltaTime/ _lrTime;
+
+            float w = Mathf.Lerp(0, _lrStartWidth, _lrCurrentTime);
+            _lr.startWidth = w;
+            _lr.endWidth = w;
+        }
     }
 
     void StartMovement()
     {
-        _isMoving= true;
+        _lrCurrentTime = 1;
+        _lr.startWidth = _lrStartWidth;
+        _lr.endWidth = _lrStartWidth;
+        _lr.colorGradient = new Gradient();
+        _isMoving = true;
         _positionList.Clear();
+        _lr.positionCount = 2;
+        _lr.SetPosition(0,transform.position);
+        _lr.SetPosition(1, transform.position);
         _positionList.Add(_movementSource.position);
     }
     void EndMovement()
@@ -100,12 +123,18 @@ public class MovementRecognizer : MonoBehaviour
             Debug.Log($"You Drew:{result.GestureClass} |  Score: {result.Score}");
             if (_playerStats.CanAttack)
             {
-                _spellHand.CastSpell(result.GestureClass, result.Score);
+                SOspell spell = _spellHand.CastSpell(result.GestureClass, result.Score);
+                if (spell != null)
+                {
+                    _lr.colorGradient = spell.color;
+                }
             }
         }
     }
     void UpdateMovement()
     {
+        _lr.positionCount++;
+        _lr.SetPosition(_lr.positionCount-1, transform.position);
         Vector3 lastPosition = _positionList[_positionList.Count-1];
         if (Vector3.Distance(_movementSource.position,lastPosition)> _betweenPositionsThreshold)
         _positionList.Add(_movementSource.position);
