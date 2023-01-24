@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Gesture: Circle
-  Accuracy: 0.6
+  Accuracy: 0.85
   Cooldown: 1
   color:
     serializedVersion: 2
