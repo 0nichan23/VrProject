@@ -9,6 +9,7 @@ public class EnemyStater : MonoBehaviour
     [SerializeField] private float strikingIntervals;
     [SerializeField] private float movementSpeed;
     [SerializeField] private Enemy refEnemy;
+    [SerializeField] private Animator anim;
     private float lastAttacked;
     public Character Target { get => target; }
 
@@ -43,6 +44,7 @@ public class EnemyStater : MonoBehaviour
         else
         {
             agent.speed = movementSpeed;
+            //anim.SetBool("Walk", true);
         }
     }
 
@@ -52,6 +54,7 @@ public class EnemyStater : MonoBehaviour
         {
             return;
         }
+        //anim.SetTigger(Attack);
         lastAttacked = Time.time;
         target.Damageable.GetHit(refEnemy.BasicAttack, refEnemy.DamageDealer);
         Debug.Log("Enemy is attacking");
