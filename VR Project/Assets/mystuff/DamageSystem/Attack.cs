@@ -8,11 +8,17 @@ public class Attack : ScriptableObject
 
     public DamageHandler Damage { get => damage; }
     public DamageType DamageType { get => damageType; }
+
+    private void OnEnable()
+    {//Sos keep references between runs
+       Damage.ClearMods();
+    }
 }
 
 public enum DamageType
 {
     Ice,
     Fire,
-    Lightning
+    Lightning,
+    Physical
 }

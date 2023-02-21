@@ -1,13 +1,12 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using System.Collections;
-using System.Collections.Generic;
 
 public class Damageable : MonoBehaviour
 {
     [SerializeField] private float maxHp;
     private float currentHp;
-    [SerializeField] private DamageType targetType;
+    private DamageType targetType;
     [SerializeField] private float invulnerabiltyDuration;
     private bool canTakeDamage;
 
@@ -42,6 +41,7 @@ public class Damageable : MonoBehaviour
         OnTakeDamge?.Invoke(givenAttack);
         OnTakeDamgeCalcDone?.Invoke(givenAttack);
         currentHp -= givenAttack.Damage.GetFinalDamage();
+        givenAttack.Damage.ClearMods();
         StartCoroutine(InvulnerabilityTime());
         ClampHp();
         OnTakeDamageGFX?.Invoke();
@@ -61,6 +61,7 @@ public class Damageable : MonoBehaviour
         OnTakeDamgeCalcDone?.Invoke(givenAttack);
         givenDealer.OnDamageCalcDone?.Invoke(givenAttack);
         currentHp -= givenAttack.Damage.GetFinalDamage();
+        givenAttack.Damage.ClearMods();
         StartCoroutine(InvulnerabilityTime());
         ClampHp();
         OnTakeDamageGFX?.Invoke();
@@ -82,6 +83,50 @@ public class Damageable : MonoBehaviour
         yield return new WaitForSecondsRealtime(invulnerabiltyDuration);
         canTakeDamage = false;
 
+    }
+
+    public void CacheTargetType(DamageType targetType)
+    {
+        OnTakeDamgeCalcDone.RemoveListener(ElementalDamageReduction);
+        this.targetType = targetType;
+        OnTakeDamgeCalcDone.AddListener(ElementalDamageReduction);
+    }
+
+    private void ElementalDamageReduction(Attack givenAttack)
+    {
+        switch (givenAttack.DamageType)
+        {
+            case DamageType.Ice:
+                if (givenAttack.DamageType == DamageType.Lightning)
+                {
+                    givenAttack.Damage.AddMod(1.5f);
+                }
+                else if (givenAttack.DamageType == DamageType.Fire)
+                {
+                    givenAttack.Damage.AddMod(0.5f);
+                }
+                return;
+            case DamageType.Fire:
+                if (givenAttack.DamageType == DamageType.Ice)
+                {
+                    givenAttack.Damage.AddMod(1.5f);
+                }
+                else if (givenAttack.DamageType == DamageType.Lightning)
+                {
+                    givenAttack.Damage.AddMod(0.5f);
+                }
+                return;
+            case DamageType.Lightning:
+                if (givenAttack.DamageType == DamageType.Fire)
+                {
+                    givenAttack.Damage.AddMod(1.5f);
+                }
+                else if (givenAttack.DamageType == DamageType.Ice)
+                {
+                    givenAttack.Damage.AddMod(0.5f);
+                }
+                return;
+        }
     }
 
 }
