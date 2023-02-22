@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7226229115081779471}
   - component: {fileID: 4184675221174909061}
   - component: {fileID: 1955554772239668302}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lightning VFX (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2596690083513710312}
   - component: {fileID: 8140448192774496384}
-  m_Layer: 0
+  - component: {fileID: 566656518436088914}
+  - component: {fileID: 7093724380854348559}
+  m_Layer: 9
   m_Name: Lightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,6 +158,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7d0ea863a721f4ab9434dc9c3990b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &566656518436088914
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5600565669824744339}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.029131869, y: 0.044577807, z: 2.002354}
+  m_Center: {x: 0.009512665, y: -0.00787727, z: 0.9950181}
+--- !u!114 &7093724380854348559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5600565669824744339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735a5b9fac4b2c044b7414dbd5304169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 11400000, guid: 997838d37592bd244936e337156ccd90, type: 2}
+  dealer: {fileID: 0}
+  OnColliderHit:
+    m_PersistentCalls:
+      m_Calls: []
+  stayCollider: 1
+  strikingInervals: 0.8
 --- !u!1 &5729439885529989239
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +201,7 @@ GameObject:
   - component: {fileID: 5729439885529989240}
   - component: {fileID: 5729439885529989241}
   - component: {fileID: 5729439885529989238}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lightning VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

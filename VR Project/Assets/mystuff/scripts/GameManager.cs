@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using PDollarGestureRecognizer;
+using System.Collections.Generic;
 using System.IO;
-using System.Xml.Serialization;
-using System.Xml;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    public ObjectPoolHandler ObjectPoolHandler;
+    public Character Player;
     public List<Gesture> Gestures = new List<Gesture>();
 
     public List<SOspell> Spells = new List<SOspell>();
@@ -20,16 +21,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string[] gestureFiles = Directory.GetFiles(Application.streamingAssetsPath+"/XML/spells/", "*.xml");
+        string[] gestureFiles = Directory.GetFiles(Application.streamingAssetsPath + "/XML/spells/", "*.xml");
         foreach (string i in gestureFiles)
         {
             Gestures.Add(GestureIO.ReadGestureFromFile(i));
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RestartGame()
     {
-        
+        SceneManager.LoadScene(0);
     }
 }

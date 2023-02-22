@@ -5,10 +5,10 @@ using UnityEngine.Events;
 public class Damageable : MonoBehaviour
 {
     [SerializeField] private float maxHp;
-    private float currentHp;
+    [SerializeField] private float currentHp;
     private DamageType targetType;
     [SerializeField] private float invulnerabiltyDuration;
-    private bool canTakeDamage;
+    private bool canTakeDamage = true;
 
     public UnityEvent<Attack> OnTakeDamge;
     public UnityEvent<Attack> OnTakeDamgeCalcDone;
@@ -19,6 +19,8 @@ public class Damageable : MonoBehaviour
     public UnityEvent OnTakeDamageGFX;
 
     public DamageType TargetType { get => targetType; }
+    public float CurrentHp { get => currentHp; }
+    public float MaxHp { get => maxHp; }
 
     public void GetHit(Attack givenAttack)
     {
@@ -64,6 +66,7 @@ public class Damageable : MonoBehaviour
         givenAttack.Damage.ClearMods();
         StartCoroutine(InvulnerabilityTime());
         ClampHp();
+        Debug.Log(name + " taking damage");
         OnTakeDamageGFX?.Invoke();
         if (currentHp <= 0)
         {
@@ -81,12 +84,19 @@ public class Damageable : MonoBehaviour
     {
         canTakeDamage = false;
         yield return new WaitForSecondsRealtime(invulnerabiltyDuration);
-        canTakeDamage = false;
+        canTakeDamage = true;
 
+    }
+
+    public void Heal(float amount)
+    {
+        currentHp += amount;
+        ClampHp();
     }
 
     public void CacheTargetType(DamageType targetType)
     {
+        currentHp = maxHp;
         OnTakeDamgeCalcDone.RemoveListener(ElementalDamageReduction);
         this.targetType = targetType;
         OnTakeDamgeCalcDone.AddListener(ElementalDamageReduction);

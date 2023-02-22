@@ -55,7 +55,21 @@ public class SpellHand : MonoBehaviour
     void CreateBarrier()
     {
         GameObject Shield = OP.SpawnFromPool("Shield", _playerStats.transform.position, _playerStats.transform.rotation);
+        GameManager.instance.Player.Damageable.OnTakeDamge.AddListener(ZeroDamage);
         Shield.GetComponent<TurnOff>().Use(10);
+
         Shield.transform.SetParent(_playerStats.transform);
+    }
+
+    private void ZeroDamage(Attack givenAttack)
+    {
+        givenAttack.Damage.AddMod(0f);
+        StartCoroutine(RemoveBuff());
+    }
+    private IEnumerator RemoveBuff()
+    {
+        yield return new  WaitForSecondsRealtime(10);
+        GameManager.instance.Player.Damageable.OnTakeDamge.RemoveListener(ZeroDamage);
+
     }
 }
