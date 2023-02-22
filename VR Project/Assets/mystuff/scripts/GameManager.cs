@@ -9,6 +9,8 @@ using System.Xml;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    public ObjectPoolHandler ObjectPoolHandler;
     public List<Gesture> Gestures = new List<Gesture>();
 
     public List<SOspell> Spells = new List<SOspell>();
