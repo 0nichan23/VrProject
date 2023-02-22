@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class Damageable : MonoBehaviour
 {
     [SerializeField] private float maxHp;
-    private float currentHp;
+    [SerializeField] private float currentHp;
     private DamageType targetType;
     [SerializeField] private float invulnerabiltyDuration;
     private bool canTakeDamage = true;
