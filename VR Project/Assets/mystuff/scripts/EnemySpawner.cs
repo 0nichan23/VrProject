@@ -15,13 +15,18 @@ public class EnemySpawner : MonoBehaviour
     }
     private void Update()
     {
-        if (counter >= spawnInterval)
+        if (GameManager.instance.ObjectPoolHandler.EnemyOP.GetNumberOfActiveObjects() <= 5)
+        {
+            return;
+        }
+        if (counter >= spawnInterval )
         {
             counter = 0f;
             spawnInterval -= Time.deltaTime;
             spawnInterval = Mathf.Clamp(spawnInterval, 1, startingSpawnInterval);
             Enemy enemy = GameManager.instance.ObjectPoolHandler.EnemyOP.GetPooledObject();
             enemy.transform.position = transform.position;
+            enemy.Damageable.Heal(enemy.Damageable.MaxHp);
             enemy.gameObject.SetActive(true);
         }
         else

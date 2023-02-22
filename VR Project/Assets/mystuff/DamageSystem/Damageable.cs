@@ -88,6 +88,12 @@ public class Damageable : MonoBehaviour
 
     }
 
+    public void Heal(float amount)
+    {
+        currentHp += amount;
+        ClampHp();
+    }
+
     public void CacheTargetType(DamageType targetType)
     {
         currentHp = maxHp;

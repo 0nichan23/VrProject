@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7226229115081779471}
   - component: {fileID: 4184675221174909061}
   - component: {fileID: 1955554772239668302}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lightning VFX (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2596690083513710312}
   - component: {fileID: 8140448192774496384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 5729439885529989240}
   - component: {fileID: 5729439885529989241}
   - component: {fileID: 5729439885529989238}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lightning VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

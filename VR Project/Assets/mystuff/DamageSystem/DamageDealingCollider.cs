@@ -10,6 +10,13 @@ public class DamageDealingCollider : MonoBehaviour
     [SerializeField] private DamageDealer dealer;
     public UnityEvent OnColliderHit;
 
+    public DamageDealer Dealer { get => dealer; }
+
+    public void CacheDamageDealer(DamageDealer givenDealer)
+    {
+        dealer = givenDealer;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Damageable damageableHit = other.gameObject.GetComponent<Damageable>();

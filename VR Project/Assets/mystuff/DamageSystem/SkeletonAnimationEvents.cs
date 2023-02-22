@@ -12,5 +12,10 @@ public class SkeletonAnimationEvents : MonoBehaviour
             refEnemy.RefStater.Target.Damageable.GetHit(refEnemy.BasicAttack, refEnemy.DamageDealer);
     }
 
+    public void Die()
+    {
+        refEnemy.gameObject.SetActive(false);
+    }
+
 
 }

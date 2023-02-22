@@ -36,4 +36,17 @@ public class ObjectPoolGeneric<T> : MonoBehaviour where T : MonoBehaviour
 
     }
 
+
+    public int GetNumberOfActiveObjects()
+    {
+        int counter = 0;
+        foreach (var item in pooledObjects)
+        {
+            if (item.gameObject.activeInHierarchy)
+            {
+                counter++;
+            }
+        }
+        return counter;
+    }
 }

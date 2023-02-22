@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private bool explosive;
     [SerializeField] private GameObject explosion;
     [SerializeField] private float lifeTime;
+    private float currentSpeed;
     private bool exploded;
 
     public DamageDealingCollider D_collider { get => d_collider; }
@@ -14,6 +15,7 @@ public class Projectile : MonoBehaviour
     public GameObject Explosion { get => explosion; }
     private void OnEnable()
     {
+        currentSpeed = _speed;
         exploded = false;
         Invoke("Explode", lifeTime);
     }
@@ -25,7 +27,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * _speed * Time.deltaTime;
+        transform.position += transform.forward * currentSpeed * Time.deltaTime;
     }
 
     private void Explode()
@@ -34,8 +36,13 @@ public class Projectile : MonoBehaviour
         {
             return;
         }
+        currentSpeed = 0f;
         exploded = true;
-        explosion.SetActive(true);
+        DamageDealingCollider explosion = GameManager.instance.ObjectPoolHandler.ExplosionOP.GetPooledObject();
+        explosion.CacheDamageDealer(d_collider.Dealer);
+        explosion.transform.position = transform.position;
+        explosion.gameObject.SetActive(true);
+        gameObject.SetActive(false);
         //explode
     }
 

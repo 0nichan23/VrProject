@@ -20,6 +20,8 @@ public class EnemyStater : MonoBehaviour
         lastAttacked = strikingIntervals * -1;
         SetDest();
     }
+
+    
     public void SetTarget(Character givenTarget)
     {
         target = givenTarget;
