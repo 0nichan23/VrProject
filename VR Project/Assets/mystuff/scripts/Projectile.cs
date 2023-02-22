@@ -34,6 +34,7 @@ public class Projectile : MonoBehaviour
     {
         if (!explosive || exploded)
         {
+            gameObject.SetActive(false);
             return;
         }
         currentSpeed = 0f;
