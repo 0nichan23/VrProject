@@ -12,9 +12,11 @@ public class EnemyStater : MonoBehaviour
     [SerializeField] private Animator anim;
     private float lastAttacked;
     public Character Target { get => target; }
+    public float StrikingDistance { get => strikingDistance;}
 
     private void Start()
     {
+        refEnemy.CacheStater(this);
         lastAttacked = strikingIntervals * -1;
         SetDest();
     }
@@ -36,15 +38,20 @@ public class EnemyStater : MonoBehaviour
 
     private void DetermineAction()
     {
-        if (Vector3.Distance(target.transform.position, transform.position) <= strikingDistance)
+        if (refEnemy.Damageable.CurrentHp <= 0)
         {
+            Die();
+        }
+        if (Vector3.Distance(target.transform.position, transform.position) <= StrikingDistance)
+        {
+            anim.SetBool("Run", false);
             agent.speed = 0f;
             Attack();
         }
         else
         {
             agent.speed = movementSpeed;
-            //anim.SetBool("Walk", true);
+            anim.SetBool("Run", true);
         }
     }
 
@@ -54,17 +61,20 @@ public class EnemyStater : MonoBehaviour
         {
             return;
         }
-        //anim.SetTigger(Attack);
+        anim.SetTrigger("Attack");
         lastAttacked = Time.time;
-        target.Damageable.GetHit(refEnemy.BasicAttack, refEnemy.DamageDealer);
-        Debug.Log("Enemy is attacking");
     }
 
+    protected virtual void Die()
+    {
+        anim.SetTrigger("Die");
+        Debug.Log("Enemy is Dead");
+    }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, strikingDistance);
+        Gizmos.DrawWireSphere(transform.position, StrikingDistance);
     }
 
 }
