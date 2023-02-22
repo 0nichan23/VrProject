@@ -536,7 +536,7 @@ MonoBehaviour:
   d_collider: {fileID: 1503606372231699541}
   explosive: 0
   explosion: {fileID: 0}
-  lifeTime: 0
+  lifeTime: 3
 --- !u!65 &9014938360398521633
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -562,8 +562,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735a5b9fac4b2c044b7414dbd5304169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: {fileID: 0}
+  attack: {fileID: 11400000, guid: 7c1160adb3030504db63ee10e7837a66, type: 2}
   dealer: {fileID: 0}
   OnColliderHit:
     m_PersistentCalls:
       m_Calls: []
+  stayCollider: 0
+  strikingInervals: 0

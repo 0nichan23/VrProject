@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class SpellHand : MonoBehaviour
 {
@@ -55,10 +56,11 @@ public class SpellHand : MonoBehaviour
     void CreateBarrier()
     {
         GameObject Shield = OP.SpawnFromPool("Shield", _playerStats.transform.position, _playerStats.transform.rotation);
-        GameManager.instance.Player.Damageable.OnTakeDamge.AddListener(ZeroDamage);
         Shield.GetComponent<TurnOff>().Use(10);
+        Shield.GetComponentInChildren<VisualEffect>().SendEvent("OnPlay");
 
         Shield.transform.SetParent(_playerStats.transform);
+        GameManager.instance.Player.Damageable.OnTakeDamge.AddListener(ZeroDamage);
     }
 
     private void ZeroDamage(Attack givenAttack)

@@ -13,9 +13,10 @@ public class EnemySpawner : MonoBehaviour
         counter = 0f;
         spawnInterval = startingSpawnInterval;
     }
+
     private void Update()
     {
-        if (GameManager.instance.ObjectPoolHandler.EnemyOP.GetNumberOfActiveObjects() <= 5)
+        if (GameManager.instance.ObjectPoolHandler.EnemyOP.GetNumberOfActiveObjects() > 5)
         {
             return;
         }
